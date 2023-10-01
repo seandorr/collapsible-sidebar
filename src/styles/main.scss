@@ -1,7 +1,160 @@
 @import "./colors.module";
 @import "./reset";
 
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
 body {
   color: $light-color;
   background-color: $dark-color;
+  font-family: "Menlo", sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 32px);
+  gap: 16px;
+  margin: 16px;
+}
+
+.sidebar,
+.main {
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  overflow-y: auto;
+
+  .content-container {
+    transition: 0.3s ease-in-out;
+    &.collapsed {
+      margin: 48px 48px 48px 144px;
+    }
+    &.expanded {
+      margin: 48px;
+    }
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out;
+
+  .logo {
+    aspect-ratio: 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 16px;
+    border: 2px dashed;
+    border-color: $secondary-color;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &.expanded {
+      aspect-ratio: auto;
+    }
+  }
+
+  .nav-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar-item-container {
+    position: relative;
+
+    .tooltip {
+      white-space: nowrap;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      background-color: rgba($light-color, 0.08);
+      box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.3);
+      border-radius: 0 8px 8px 0;
+      height: 100%;
+      position: absolute;
+      left: calc(100% + 16px);
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.3s ease-in-out;
+
+      &.active {
+        background-color: $dark-color;
+      }
+    }
+  }
+
+  .item {
+    all: unset;
+    white-space: nowrap;
+    // height: 24px;
+    margin: 8px;
+    padding: 8px;
+    border: 2px solid rgba($light-color, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    transition-property: background-color, border-radius;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+
+    &.active {
+      color: $dark-color;
+      background-color: $primary-color;
+      border: 2px solid rgba($dark-color, 0.4);
+
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+
+    &#expand-item {
+      justify-content: center;
+    }
+
+    &.sidebar-expanded {
+      justify-content: flex-start;
+    }
+
+    &:hover {
+      background-color: rgba($light-color, 0.08);
+      border-radius: 8px;
+    }
+
+    &:focus-visible {
+      outline: 2px dashed $primary-color;
+    }
+
+    .label {
+      visibility: hidden;
+      opacity: 0;
+      width: 0;
+      transform: translateY(4px);
+      transition: 0.3s ease-in-out;
+
+      &.sidebar-expanded {
+        margin-left: 8px;
+        visibility: visible;
+        opacity: 1;
+        width: auto;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.card {
+  background-color: rgba($light-color, 0.1);
+  border-radius: 8px;
 }
