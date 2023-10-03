@@ -1,0 +1,13 @@
+@import "./colors.module";
+
+:root {
+  --font-color: #{$dark-color};
+  --background-color: #{$light-color};
+  --background-rgb: #{$dark-color-rgb};
+}
+
+[data-theme="dark"] {
+  --font-color: #{$light-color};
+  --background-color: #{$dark-color};
+  --background-rgb: #{$light-color-rgb};
+}
