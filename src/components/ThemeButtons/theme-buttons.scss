@@ -6,6 +6,7 @@
 
   .theme-btn {
     all: unset;
+    text-transform: capitalize;
     padding: 8px;
     border: 2px solid rgba(var(--background-rgb), 0.1);
     cursor: pointer;

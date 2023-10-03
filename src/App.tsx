@@ -1,41 +1,24 @@
 import React, { useState } from "react";
 import useLocalStorage from "use-local-storage";
 import ThemeButtons from "./components/ThemeButtons/ThemeButtons";
+import { defaultDark } from "./utils/constants/defaultDarkTheme";
+import { sidebarItems } from "./utils/constants/sidebarItems";
 import "./styles/main.scss";
 
 export default function App() {
-  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [theme, setTheme] = useState(defaultDark ? "dark" : "light");
   const [themeName, setThemeName] = useLocalStorage("theme", "system");
+  const [theme, setTheme] = useState(defaultDark ? "dark" : "light");
 
-  const sidebarItems = [
-    {
-      id: 1,
-      label: "Recipes",
-      icon: "menu_book",
-    },
-    {
-      id: 2,
-      label: "Admin",
-      icon: "admin_panel_settings",
-    },
-    {
-      id: 3,
-      label: "Settings",
-      icon: "settings_applications",
-    },
-    {
-      id: 4,
-      label: "Logout",
-      icon: "logout",
-    },
-  ];
   const [activeSidebarItem, setActiveSidebarItem] = useState(sidebarItems[0]);
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [sidebarItemHover, setSidebarItemHover] = useState(undefined);
 
   const sidebarWidth = {
-    width: `${sidebarExpanded ? "300px" : "60px"}`,
+    width: `${
+      sidebarExpanded
+        ? "var(--sidebar-width-expanded)"
+        : "var(--sidebar-width-collapsed)"
+    }`,
   };
 
   return (
@@ -110,7 +93,6 @@ export default function App() {
                   themeName={themeName}
                   setTheme={setTheme}
                   setThemeName={setThemeName}
-                  defaultDark={defaultDark}
                 />
               </>
             )}

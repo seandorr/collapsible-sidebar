@@ -1,6 +1,9 @@
 @import "./colors.module";
 
 :root {
+  --sidebar-width-collapsed: 60px;
+  --sidebar-width-expanded: 300px;
+
   --font-color: #{$dark-color};
   --background-color: #{$light-color};
   --background-rgb: #{$dark-color-rgb};
