@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useLocalStorage from "use-local-storage";
-import ThemeButtons from "./components/ThemeButtons/ThemeButtons";
+import ThemeButtons from "./components/ThemeButtons";
 import { defaultDark } from "./utils/constants/defaultDarkTheme";
 import { sidebarItems } from "./utils/constants/sidebarItems";
 import "./styles/main.scss";
@@ -78,13 +78,7 @@ export default function App() {
           </div>
         </div>
         <main className="main card">
-          <div
-            className={`${
-              sidebarExpanded
-                ? "content-container expanded"
-                : "content-container collapsed"
-            }`}
-          >
+          <div className="content-container">
             <h1>{activeSidebarItem.label}</h1>
             {activeSidebarItem.label === "Settings" && (
               <>

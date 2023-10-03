@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeButton from "../ThemeButton/ThemeButton";
+import ThemeButton from "./ThemeButton";
 import { defaultDark } from "../../utils/constants/defaultDarkTheme";
 import "./theme-buttons.scss";
 

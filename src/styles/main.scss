@@ -33,13 +33,8 @@ body {
   overflow-y: auto;
 
   .content-container {
+    margin: 48px;
     transition: 0.3s ease-in-out;
-    &.collapsed {
-      margin: 48px;
-    }
-    &.expanded {
-      margin: 48px;
-    }
 
     h1 {
       margin-bottom: 32px;
