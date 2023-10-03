@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useLocalStorage from "use-local-storage";
-import ThemeButtons from "./ThemeButtons";
+import ThemeButtons from "./components/ThemeButtons/ThemeButtons";
 import "./styles/main.scss";
 
 export default function App() {

@@ -1,4 +1,5 @@
 import React from "react";
+import "./theme-buttons.scss";
 
 export default function ThemeButtons({
   themeName,
@@ -12,7 +13,7 @@ export default function ThemeButtons({
   defaultDark: boolean;
 }) {
   return (
-    <>
+    <div className="theme-btn-container">
       <button
         className={`${
           themeName === "system" ? "theme-btn active" : "theme-btn"
@@ -47,6 +48,6 @@ export default function ThemeButtons({
       >
         light
       </button>
-    </>
+    </div>
   );
 }
