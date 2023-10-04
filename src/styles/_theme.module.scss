@@ -1,16 +1,21 @@
 @import "./colors.module";
 
 :root {
+  --base-unit: 8px;
+  --base-border-radius: var(--base-unit);
+  --base-border-size: 2px;
   --sidebar-width-collapsed: 60px;
   --sidebar-width-expanded: 300px;
 
   --font-color: #{$dark-color};
   --background-color: #{$light-color};
   --background-rgb: #{$dark-color-rgb};
+  --tooltip-box-shadow-opacity: 0.1;
 }
 
 [data-theme="dark"] {
   --font-color: #{$light-color};
   --background-color: #{$dark-color};
   --background-rgb: #{$light-color-rgb};
+  --tooltip-box-shadow-opacity: 0.3;
 }
