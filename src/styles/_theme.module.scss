@@ -6,6 +6,7 @@
   --base-border-size: 2px;
   --sidebar-width-collapsed: 60px;
   --sidebar-width-expanded: 300px;
+  --primary-color: #{$primary-color};
 
   --font-color: #{$dark-color};
   --background-color: #{$light-color};
@@ -18,4 +19,12 @@
   --background-color: #{$dark-color};
   --background-rgb: #{$light-color-rgb};
   --tooltip-box-shadow-opacity: 0.3;
+}
+
+[data-color="green"] {
+  --primary-color: #{$primary-color};
+}
+
+[data-color="red"] {
+  --primary-color: #{$primary-red-color};
 }

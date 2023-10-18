@@ -29,16 +29,16 @@
 
     &.active {
       color: $dark-color;
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       border: 2px solid rgba($dark-color, 0.4);
 
       &:hover {
-        background-color: $primary-color;
+        background-color: var(--primary-color);
       }
     }
 
     &:focus-visible {
-      outline: 2px dashed $primary-color;
+      outline: 2px dashed var(--primary-color);
     }
   }
 }
