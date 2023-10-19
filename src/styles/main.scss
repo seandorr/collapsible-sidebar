@@ -66,8 +66,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: calc(var(--base-unit) * 2);
-    border: var(--base-border-size) dashed;
-    border-color: $secondary-color;
+    background-color: $secondary-color;
     border-radius: var(--base-border-radius);
     transition: 0.3s ease-in-out;
     cursor: pointer;
