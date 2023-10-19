@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useLocalStorage from "use-local-storage";
 import ThemeButtons from "./components/ThemeButtons";
 import { defaultDark } from "./utils/constants/defaultDarkTheme";
 import { sidebarItems } from "./utils/constants/sidebarItems";
+import TagGenerator from "./components/TagGenerator";
 import "./styles/main.scss";
 
 export default function App() {
@@ -26,6 +27,23 @@ export default function App() {
         : "var(--sidebar-width-collapsed)"
     }`,
   };
+
+  const toggleSidebar = (event: KeyboardEvent) => {
+    const commandKey = event.metaKey;
+    const oKey = event.which === 79;
+
+    if (commandKey && oKey) {
+      setSidebarExpanded((prevState) => !prevState);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", toggleSidebar);
+
+    return () => {
+      window.removeEventListener("keydown", toggleSidebar);
+    };
+  }, []);
 
   return (
     <div className="container" data-theme={theme} data-color={primaryColor}>
@@ -86,6 +104,7 @@ export default function App() {
         <main className="main card">
           <div className="content-container">
             <h1>{activeSidebarItem.label}</h1>
+            {activeSidebarItem.label === "Tags" && <TagGenerator />}
             {activeSidebarItem.label === "Settings" && (
               <div
                 style={{ display: "flex", flexDirection: "column", gap: 32 }}
