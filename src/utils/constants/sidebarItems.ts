@@ -1,8 +1,8 @@
 export const sidebarItems = [
   {
     id: 1,
-    label: "Recipes",
-    icon: "menu_book",
+    label: "Tags",
+    icon: "sell",
   },
   {
     id: 2,
