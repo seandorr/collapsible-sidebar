@@ -20,6 +20,14 @@ export default function App() {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [sidebarItemHover, setSidebarItemHover] = useState(undefined);
 
+  useEffect(() => {
+    window.addEventListener("keydown", toggleSidebar);
+
+    return () => {
+      window.removeEventListener("keydown", toggleSidebar);
+    };
+  }, []);
+
   const sidebarWidth = {
     width: `${
       sidebarExpanded
@@ -36,14 +44,6 @@ export default function App() {
       setSidebarExpanded((prevState) => !prevState);
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("keydown", toggleSidebar);
-
-    return () => {
-      window.removeEventListener("keydown", toggleSidebar);
-    };
-  }, []);
 
   return (
     <div className="container" data-theme={theme} data-color={primaryColor}>

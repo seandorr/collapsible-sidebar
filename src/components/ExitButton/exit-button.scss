@@ -1,0 +1,14 @@
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--background-rgb), 0.3);
+  border-radius: var(--base-border-radius);
+  width: calc(var(--base-unit) * 3);
+  height: calc(var(--base-unit) * 3);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px dashed var(--primary-color);
+  }
+}

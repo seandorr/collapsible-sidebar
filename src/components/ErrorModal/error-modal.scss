@@ -1,0 +1,36 @@
+@import "../../styles/colors.module";
+
+.modal-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  .mask {
+    margin: calc(var(--base-unit) * -2);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($dark-color, 0.6);
+    z-index: 1;
+  }
+
+  .modal {
+    padding: calc(var(--base-unit) * 4);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background-color);
+    border: var(--base-border-size) solid $primary-red-color;
+    border-radius: var(--base-border-radius);
+    z-index: 2;
+
+    .exit-modal-btn {
+      position: absolute;
+      right: calc(var(--base-unit) * 4);
+      z-index: 3;
+    }
+  }
+}
