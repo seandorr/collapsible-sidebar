@@ -1,0 +1,26 @@
+.main {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+  .content-container {
+    margin: calc(var(--base-unit) * 8);
+    transition: 0.3s ease-in-out;
+
+    h1 {
+      margin-bottom: calc(var(--base-unit) * 4);
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: var(--base-border-size);
+        background-color: rgba(var(--background-rgb), 0.1);
+        position: absolute;
+        left: 0;
+        bottom: calc(var(--base-unit) * -2);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

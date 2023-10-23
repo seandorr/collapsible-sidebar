@@ -1,0 +1,12 @@
+.container {
+  color: var(--font-color);
+  background-color: var(--background-color);
+  padding: calc(var(--base-unit) * 2);
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - var(--base-unit) * 4);
+    gap: calc(var(--base-unit) * 2);
+  }
+}

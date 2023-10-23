@@ -1,7 +1,7 @@
 import React from "react";
 import "./exit-button.scss";
 
-export default function ExitButton({
+export function ExitButton({
   onClick,
   onKeyDown,
   className,

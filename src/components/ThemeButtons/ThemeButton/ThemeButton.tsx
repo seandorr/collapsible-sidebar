@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ThemeButton({
+export function ThemeButton({
   kind,
   themeName,
   onClick,

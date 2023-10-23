@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ExitButton from "../ExitButton";
-import ErrorModal from "../ErrorModal";
+import { ErrorModal } from "../ErrorModal";
+import { ExitButton } from "../ExitButton";
 import "./tag-generator.scss";
 
-export default function TagGenerator() {
+export function TagGenerator() {
   const [inputValue, setInputValue] = useState("");
   const [tags, setTags] = useState(["tags", "are", "awesome"]);
   const [noInputError, setNoInputError] = useState(false);

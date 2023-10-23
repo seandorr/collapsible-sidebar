@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import ExitButton from "../ExitButton";
+import { ExitButton } from "../ExitButton";
 import "./error-modal.scss";
 
-export default function ErrorModal({
+export function ErrorModal({
   title = "Error",
   errorMessage,
   setError,

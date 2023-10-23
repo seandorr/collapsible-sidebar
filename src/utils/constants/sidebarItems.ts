@@ -1,4 +1,10 @@
-export const sidebarItems = [
+export interface ISidebarItem {
+  id: number;
+  label: string;
+  icon: string;
+}
+
+export const sidebarItems: ISidebarItem[] = [
   {
     id: 1,
     label: "Tags",

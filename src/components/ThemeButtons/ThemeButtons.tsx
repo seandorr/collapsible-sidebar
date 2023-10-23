@@ -1,9 +1,9 @@
 import React from "react";
-import ThemeButton from "./ThemeButton";
+import { ThemeButton } from "./ThemeButton/ThemeButton";
 import { defaultDark } from "../../utils/constants/defaultDarkTheme";
 import "./theme-buttons.scss";
 
-export default function ThemeButtons({
+export function ThemeButtons({
   setTheme,
   themeName,
   setThemeName,
