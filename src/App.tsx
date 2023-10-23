@@ -87,18 +87,30 @@ export default function App() {
                 );
               })}
             </div>
-            <button
-              className="item"
-              id="expand-item"
-              onClick={() => setSidebarExpanded((prevState) => !prevState)}
-              tabIndex={0}
-            >
-              <span className="material-symbols-outlined">
-                {sidebarExpanded
-                  ? "keyboard_double_arrow_left"
-                  : "keyboard_double_arrow_right"}
-              </span>
-            </button>
+            <div className="sidebar-item-container">
+              <button
+                className="item"
+                id="expand-item"
+                onClick={() => setSidebarExpanded((prevState) => !prevState)}
+                onMouseEnter={() => setSidebarItemHover("expand")}
+                onMouseLeave={() => setSidebarItemHover(undefined)}
+                tabIndex={0}
+              >
+                <span className="material-symbols-outlined">
+                  {sidebarExpanded
+                    ? "keyboard_double_arrow_left"
+                    : "keyboard_double_arrow_right"}
+                </span>
+              </button>
+              {sidebarItemHover === "expand" && (
+                <span className="tooltip">
+                  <div className="keys-container">
+                    <span className="keyboard-key">⌘</span>+
+                    <span className="keyboard-key">o</span>
+                  </div>
+                </span>
+              )}
+            </div>
           </div>
         </div>
         <main className="main card">
