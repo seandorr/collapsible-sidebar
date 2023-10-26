@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ISidebarItem, sidebarItems } from "../../utils/constants/sidebarItems";
+import { SidebarItem } from "./SidebarItem";
 import "./sidebar.scss";
 
 export function Sidebar({
@@ -38,63 +39,48 @@ export function Sidebar({
   };
 
   return (
-    <aside className="sidebar" style={sidebarWidth}>
+    <aside className="sidebar-container" style={sidebarWidth}>
       <div className={`${sidebarExpanded ? "logo expanded" : "logo"} `}></div>
-      <div className="card nav-container">
-        <div className="nav-items">
+      <div className="card sidebar">
+        <div className="sidebar-nav-items">
           {sidebarItems.map((item, index) => {
             return (
-              <div key={index} className="sidebar-item-container">
-                <button
-                  className={`${
-                    item.id === activeSidebarItem.id ? "item active" : "item"
-                  }`}
-                  onClick={() => setActiveSidebarItem(item)}
-                  onMouseEnter={() => setSidebarItemHover(item.id)}
-                  onMouseLeave={() => setSidebarItemHover(undefined)}
-                  tabIndex={0}
-                >
-                  <span className="material-symbols-outlined">{item.icon}</span>
-                  <span
-                    className={
-                      sidebarExpanded ? "label sidebar-expanded" : "label"
-                    }
-                    style={{ transitionDelay: `calc(${index} * 24ms)` }}
-                  >
-                    {item.label}
-                  </span>
-                </button>
-                {!sidebarExpanded && sidebarItemHover === item.id && (
-                  <span className="tooltip">{item.label}</span>
-                )}
-              </div>
+              <SidebarItem
+                key={index}
+                index={index}
+                btnClassName={item.id === activeSidebarItem.id ? "active" : ""}
+                onClick={() => setActiveSidebarItem(item)}
+                onMouseEnter={() => setSidebarItemHover(item.id)}
+                onMouseLeave={() => setSidebarItemHover(undefined)}
+                icon={item.icon}
+                label={item.label}
+                tooltipVisible={
+                  !sidebarExpanded && sidebarItemHover === item.id
+                }
+                sidebarExpanded={sidebarExpanded}
+              />
             );
           })}
         </div>
-        <div className="sidebar-item-container">
-          <button
-            className="item"
-            id="expand-item"
-            onClick={() => setSidebarExpanded((prevState) => !prevState)}
-            onMouseEnter={() => setSidebarItemHover("expand")}
-            onMouseLeave={() => setSidebarItemHover(undefined)}
-            tabIndex={0}
-          >
-            <span className="material-symbols-outlined">
-              {sidebarExpanded
-                ? "keyboard_double_arrow_left"
-                : "keyboard_double_arrow_right"}
-            </span>
-          </button>
-          {sidebarItemHover === "expand" && (
-            <span className="tooltip">
-              <div className="keys-container">
-                <span className="keyboard-key">⌘</span>+
-                <span className="keyboard-key">o</span>
-              </div>
-            </span>
-          )}
-        </div>
+        <SidebarItem
+          expandItem={true}
+          btnId="expand-item"
+          onClick={() => setSidebarExpanded((prevState) => !prevState)}
+          onMouseEnter={() => setSidebarItemHover("expand")}
+          onMouseLeave={() => setSidebarItemHover(undefined)}
+          icon={
+            sidebarExpanded
+              ? "keyboard_double_arrow_left"
+              : "keyboard_double_arrow_right"
+          }
+          tooltipVisible={sidebarItemHover === "expand"}
+          label={
+            <div className="keys-container">
+              <span className="keyboard-key">⌘</span>+
+              <span className="keyboard-key">o</span>
+            </div>
+          }
+        />
       </div>
     </aside>
   );
