@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ISidebarItem, sidebarItems } from "../../utils/constants/sidebarItems";
-import { SidebarItem } from "./SidebarItem";
-import "./sidebar.scss";
+import { SidebarItem } from "../SidebarItem";
+import styles from "./sidebar.module.scss";
+import sidebarItemStyles from "../SidebarItem/sidebar-item.module.scss";
 
 export function Sidebar({
   activeSidebarItem,
@@ -11,7 +12,9 @@ export function Sidebar({
   setActiveSidebarItem: (item: ISidebarItem) => void;
 }) {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
-  const [sidebarItemHover, setSidebarItemHover] = useState(undefined);
+  const [sidebarItemHover, setSidebarItemHover] = useState<
+    number | string | undefined
+  >(undefined);
 
   useEffect(() => {
     window.addEventListener("keydown", toggleSidebar);
@@ -39,16 +42,22 @@ export function Sidebar({
   };
 
   return (
-    <aside className="sidebar-container" style={sidebarWidth}>
-      <div className={`${sidebarExpanded ? "logo expanded" : "logo"} `}></div>
-      <div className="card sidebar">
+    <aside className={styles.sidebar_container} style={sidebarWidth}>
+      <div
+        className={`${styles.logo} ${sidebarExpanded ? styles.expanded : ""} `}
+      ></div>
+      <div className={`card ${styles.sidebar}`}>
         <div className="sidebar-nav-items">
           {sidebarItems.map((item, index) => {
             return (
               <SidebarItem
                 key={index}
                 index={index}
-                btnClassName={item.id === activeSidebarItem.id ? "active" : ""}
+                btnClassName={
+                  item.id === activeSidebarItem.id
+                    ? sidebarItemStyles.active
+                    : ""
+                }
                 onClick={() => setActiveSidebarItem(item)}
                 onMouseEnter={() => setSidebarItemHover(item.id)}
                 onMouseLeave={() => setSidebarItemHover(undefined)}
@@ -64,7 +73,7 @@ export function Sidebar({
         </div>
         <SidebarItem
           expandItem={true}
-          btnId="expand-item"
+          btnId={sidebarItemStyles["expand_item"]}
           onClick={() => setSidebarExpanded((prevState) => !prevState)}
           onMouseEnter={() => setSidebarItemHover("expand")}
           onMouseLeave={() => setSidebarItemHover(undefined)}
@@ -75,9 +84,9 @@ export function Sidebar({
           }
           tooltipVisible={sidebarItemHover === "expand"}
           label={
-            <div className="keys-container">
-              <span className="keyboard-key">⌘</span>+
-              <span className="keyboard-key">o</span>
+            <div className={sidebarItemStyles.keys_container}>
+              <span className={sidebarItemStyles.keyboard_key}>⌘</span>+
+              <span className={sidebarItemStyles.keyboard_key}>o</span>
             </div>
           }
         />

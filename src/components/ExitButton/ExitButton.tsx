@@ -1,5 +1,5 @@
 import React from "react";
-import "./exit-button.scss";
+import styles from "./exit-button.module.scss";
 
 export function ExitButton({
   onClick,
@@ -12,7 +12,7 @@ export function ExitButton({
 }) {
   return (
     <span
-      className={`close-btn ${className || ""}`}
+      className={`${styles.close_btn} ${className || ""}`}
       onClick={onClick}
       tabIndex={0}
       onKeyDown={onKeyDown}

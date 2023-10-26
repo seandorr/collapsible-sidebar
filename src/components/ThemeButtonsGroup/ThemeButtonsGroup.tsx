@@ -1,7 +1,6 @@
 import React from "react";
 import { ThemeButton } from "./ThemeButton/ThemeButton";
-import { defaultDark } from "../../utils/constants/defaultDarkTheme";
-import "./theme-buttons.scss";
+import styles from "./theme-buttons-group.module.scss";
 
 export function ThemeButtons({
   setTheme,
@@ -12,8 +11,10 @@ export function ThemeButtons({
   setThemeName: (string: string) => void;
   themeName: string;
 }) {
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   return (
-    <div className="theme-btn-container">
+    <div className={styles.theme_btn_container}>
       <ThemeButton
         kind="system"
         onClick={() => {

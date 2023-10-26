@@ -1,0 +1,84 @@
+.tags_page_container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: calc(var(--base-unit) * 5);
+
+  .input_container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--base-unit);
+
+    button {
+      all: unset;
+      padding: 8px;
+      border: 2px solid rgba(var(--background-rgb), 0.1);
+      border-radius: 0 var(--base-unit) var(--base-unit) 0;
+    }
+
+    .tag_input_container {
+      display: flex;
+
+      input {
+        color: var(--font-color);
+        width: fit-content;
+        background-color: rgba(var(--background-rgb), 0.2);
+        border-radius: var(--base-unit) 0 0 var(--base-unit);
+        border: 2px solid rgba(var(--background-rgb), 0.1);
+        padding-left: var(--base-unit);
+
+        &:focus-visible {
+          outline: 2px dashed var(--primary-color);
+        }
+      }
+
+      button {
+        margin-left: -2px;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(var(--background-rgb), 0.08);
+        }
+        &:focus-visible {
+          outline: 2px dashed var(--primary-color);
+        }
+      }
+    }
+  }
+
+  .tags_container {
+    margin: calc(var(--base-unit) * 2) 0;
+    padding: var(--base-unit);
+    border: var(--base-border-size) dashed;
+    border-color: rgba(var(--background-rgb), 0.3);
+    border-radius: var(--base-border-radius);
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--base-unit));
+    min-height: 100px;
+
+    .tag {
+      height: fit-content;
+      padding: var(--base-unit);
+      border: var(--base-border-size) solid rgba(var(--background-rgb), 0.1);
+      background-color: transparent;
+      border-radius: var(--base-border-radius);
+      display: flex;
+      align-items: center;
+      gap: var(--base-unit);
+
+      .close_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(var(--background-rgb), 0.3);
+        border-radius: var(--base-border-radius);
+        width: calc(var(--base-unit) * 3);
+        height: calc(var(--base-unit) * 3);
+        cursor: pointer;
+
+        &:focus-visible {
+          outline: 2px dashed var(--primary-color);
+        }
+      }
+    }
+  }
+}

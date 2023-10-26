@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ExitButton } from "../ExitButton";
-import "./error-modal.scss";
+import styles from "./error-modal.module.scss";
 
 export function ErrorModal({
   title = "Error",
@@ -26,10 +26,10 @@ export function ErrorModal({
   };
 
   return (
-    <div className="modal-container">
-      <div className="modal">
+    <div className={styles.modal_container}>
+      <div className={styles.modal}>
         <ExitButton
-          className="exit-modal-btn"
+          className={styles.exit_modal_btn}
           onClick={() => {
             setError(false);
           }}
@@ -42,7 +42,7 @@ export function ErrorModal({
         <h1>{title}</h1>
         <p>{errorMessage}</p>
       </div>
-      <div className="mask"></div>
+      <div className={styles.mask}></div>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { TagGenerator } from "../TagGenerator";
-import { ThemeButtons } from "../ThemeButtons";
+import { ThemeButtons } from "../ThemeButtonsGroup";
 import { ISidebarItem } from "../../utils/constants/sidebarItems";
-import "./content.scss";
+import styles from "./content.module.scss";
 
 export function Content({
   activeSidebarItem,
@@ -20,8 +20,8 @@ export function Content({
   setPrimaryColor: (primaryColor: string) => void;
 }) {
   return (
-    <main className="main card">
-      <div className="content-container">
+    <main className={`${styles.main} card`}>
+      <div className={styles.content_container}>
         <h1>{activeSidebarItem.label}</h1>
         {activeSidebarItem.label === "Tags" && <TagGenerator />}
         {activeSidebarItem.label === "Settings" && (

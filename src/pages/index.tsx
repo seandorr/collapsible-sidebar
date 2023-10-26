@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import useLocalStorage from "use-local-storage";
-import { defaultDark } from "./utils/constants/defaultDarkTheme";
-import { sidebarItems } from "./utils/constants/sidebarItems";
-import { Layout } from "./components/Layout";
-import { Sidebar } from "./components/Sidebar";
-import { Content } from "./components/Content";
-import "./styles/main.scss";
+import { sidebarItems } from "../utils/constants/sidebarItems";
+import { Layout } from "../components/Layout";
+import { Sidebar } from "../components/Sidebar";
+import { Content } from "../components/Content";
 
 export default function App() {
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [themeName, setThemeName] = useLocalStorage("theme", "system");
   const [theme, setTheme] = useState(
     themeName === "system" && defaultDark ? "dark" : "light"

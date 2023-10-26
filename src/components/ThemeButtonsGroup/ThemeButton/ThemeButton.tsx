@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../theme-buttons-group.module.scss";
 
 export function ThemeButton({
   kind,
@@ -11,7 +12,9 @@ export function ThemeButton({
 }) {
   return (
     <button
-      className={`${themeName === kind ? "theme-btn active" : "theme-btn"}`}
+      className={`${styles.theme_btn} ${
+        themeName === kind ? styles.active : ""
+      }`}
       onClick={onClick}
       tabIndex={0}
     >

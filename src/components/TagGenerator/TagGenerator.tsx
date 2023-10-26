@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ErrorModal } from "../ErrorModal";
 import { ExitButton } from "../ExitButton";
-import "./tag-generator.scss";
+import styles from "./tag-generator.module.scss";
 
 export function TagGenerator() {
   const [inputValue, setInputValue] = useState("");
@@ -35,7 +35,7 @@ export function TagGenerator() {
   };
 
   return (
-    <div className="tags-page-container">
+    <div className={styles.tags_page_container}>
       {noInputError && (
         <ErrorModal
           errorMessage="You need to add at least one character in order to create a tag."
@@ -48,9 +48,9 @@ export function TagGenerator() {
           setError={setTagExistsError}
         />
       )}
-      <div className="input-container">
+      <div className={styles.input_container}>
         <label>Create a tag</label>
-        <div className="tag-input-container">
+        <div className={styles.tag_input_container}>
           <input
             onChange={handleOnInputChange}
             value={inputValue}
@@ -62,10 +62,10 @@ export function TagGenerator() {
         </div>
       </div>
 
-      <div className="tags-container">
+      <div className={styles.tags_container}>
         {tags.map((tag, index) => {
           return (
-            <span key={index} className="tag">
+            <span key={index} className={styles.tag}>
               {tag}
               <ExitButton
                 onClick={() => setTags(tags.filter((item) => item !== tag))}

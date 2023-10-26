@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import "./sidebar-item.scss";
+import styles from "./sidebar-item.module.scss";
 
 interface INavItem {
   btnClassName?: string;
@@ -29,10 +29,10 @@ export function SidebarItem({
   expandItem = false,
 }: INavItem) {
   return (
-    <div className="sidebar-item-container">
+    <div className={styles.sidebar_item_container}>
       <button
         id={btnId}
-        className={`item ${btnClassName || ""}`}
+        className={`${styles.item} ${btnClassName || ""}`}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
@@ -41,14 +41,16 @@ export function SidebarItem({
         <span className="material-symbols-outlined">{icon}</span>
         {!expandItem && (
           <span
-            className={sidebarExpanded ? "label sidebar-expanded" : "label"}
+            className={`${styles.label} ${
+              sidebarExpanded ? styles.sidebar_expanded : ""
+            }`}
             style={{ transitionDelay: `calc(${index} * 24ms)` }}
           >
             {label}
           </span>
         )}
       </button>
-      {tooltipVisible && <span className="tooltip">{label}</span>}
+      {tooltipVisible && <span className={styles.tooltip}>{label}</span>}
     </div>
   );
 }

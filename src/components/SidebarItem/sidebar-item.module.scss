@@ -1,6 +1,6 @@
-@import "../../../styles/colors.module";
+@import "../../styles/colors.module";
 
-.sidebar-item-container {
+.sidebar_item_container {
   position: relative;
 
   .item {
@@ -32,7 +32,7 @@
       }
     }
 
-    &#expand-item {
+    &#expand_item {
       justify-content: center;
     }
 
@@ -52,7 +52,7 @@
       transform: translateY(4px);
       transition: 0.3s ease-in-out;
 
-      &.sidebar-expanded {
+      &.sidebar_expanded {
         margin-left: var(--base-unit);
         visibility: visible;
         opacity: 1;
@@ -83,13 +83,13 @@
       background-color: $dark-color;
     }
 
-    .keys-container {
+    .keys_container {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
 
-      .keyboard-key {
+      .keyboard_key {
         font-size: 1.5rem;
         width: calc(var(--base-unit) * 5);
         aspect-ratio: 1/1;
